@@ -1,13 +1,3 @@
-.visually-hidden {
-  clip: rect(0 0 0 0);
-  clip-path: inset(50%);
-  height: 1px;
-  overflow: hidden;
-  position: absolute;
-  white-space: nowrap;
-  width: 1px;
-}
-
 input[type="text"] {
   background-color: rgb(224, 239, 245);
   background-position: 10px 10px;
@@ -32,19 +22,19 @@ input[type="text"] {
 }
 
 ::placeholder {
-  color: skyblue;
+  color: rgb(47, 82, 95);
   font-weight: bold;
   opacity: 1; /* Firefox */
 }
 
 :-ms-input-placeholder {
   /* Internet Explorer 10-11 */
-  color: skyblue;
+  color: rgb(47, 82, 95);
   font-weight: bold;
 }
 
 ::-ms-input-placeholder {
   /* Microsoft Edge */
-  color: skyblue;
+  color: rgb(47, 82, 95);
   font-weight: bold;
 }

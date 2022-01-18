@@ -1,0 +1,28 @@
+ul li {
+  display: flex;
+  background: #cce5ff;
+  margin: 25px;
+  border-radius: 25px;
+  overflow: hidden;
+}
+
+ul li img {
+  display: flex;
+  margin: 12px 14px;
+  align-self: flex-start;
+  text-align: left;
+  border-radius: 25px;
+  border: 2px solid white;
+}
+
+.movie-description {
+  max-height: 200px;
+  text-align: left;
+  color: rgb(47, 82, 95);
+}
+
+ul li p {
+  text-align: left;
+  font-size: 14px;
+  color: rgb(37, 95, 114);
+}

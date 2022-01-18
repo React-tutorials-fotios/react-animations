@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import baseURL from "../constants/baseURL";
+import "../CSS/listItem.css";
 
 const ListItem = ({ movie }) => {
   const [url, setUrl] = useState();
@@ -18,8 +19,11 @@ const ListItem = ({ movie }) => {
   return (
     <li>
       <img src={url} alt="movie image" />
-      <h4>{movie.title}</h4>
-      <h5>{movie.release_date}</h5>
+      <section className="movie-description">
+        <h4>{movie.title}</h4>
+        <h5>{movie.release_date}</h5>
+        <p>{movie.overview.slice(0, 88)}...</p>
+      </section>
     </li>
   );
 };
