@@ -39,7 +39,9 @@ const SearchBar = () => {
         value={movieName}
         onChange={handleChange}
       />
-      <button onClick={searchMovieHandler}>Search</button>
+      <button className="searchButton" onClick={searchMovieHandler}>
+        Search
+      </button>
     </form>
   );
 };
