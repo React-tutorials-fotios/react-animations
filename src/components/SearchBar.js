@@ -2,6 +2,7 @@ import React, { useContext, useState } from "react";
 
 import api_key from "../api_key";
 import { MoviesContext } from "../App";
+import baseURL from "../constants/baseURL";
 
 import "../CSS/searchBar.css";
 
@@ -12,7 +13,7 @@ const SearchBar = () => {
 
   const searchMovieHandler = async (e) => {
     e.preventDefault();
-    let baseURL = "https://api.themoviedb.org/3/";
+
     try {
       const response = await fetch(
         `${baseURL}search/movie?api_key=${api_key}&query=${movieName}&language=en-US&include_adult=false`

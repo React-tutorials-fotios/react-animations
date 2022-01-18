@@ -4,6 +4,7 @@ import ListItem from "./ListItem";
 
 const MoviesList = () => {
   const { movies } = useContext(MoviesContext);
+  console.log("movies", movies);
   return (
     <div>
       <ul>
