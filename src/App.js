@@ -1,13 +1,18 @@
-import "./App.css";
+import React, { createContext, useState } from "react";
+
 import MoviesList from "./components/MoviesList";
 import SearchBar from "./components/SearchBar";
+import "./App.css";
+
+export const MoviesContext = createContext();
 
 function App() {
+  const [movies, setMovies] = useState([]);
   return (
-    <div className="App">
+    <MoviesContext.Provider value={{ movies, setMovies }}>
       <SearchBar />
       <MoviesList />
-    </div>
+    </MoviesContext.Provider>
   );
 }
 
