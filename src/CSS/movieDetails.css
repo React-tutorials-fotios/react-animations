@@ -1,0 +1,19 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  background: #cce5ff;
+  margin: 25px;
+  border-radius: 25px;
+  overflow: hidden;
+}
+
+.details {
+  font-size: 14px;
+}
+.movie-description {
+  padding: 15px;
+}
+
+.overview {
+  padding: 15px;
+}
