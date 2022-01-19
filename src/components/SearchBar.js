@@ -3,9 +3,9 @@ import { motion } from "framer-motion";
 
 import api_key from "../api_key";
 import { MoviesContext } from "../App";
-import baseURL from "../constants/baseURL";
-
 import "../CSS/searchBar.css";
+
+const baseURL = "https://api.themoviedb.org/3/";
 
 const SearchBar = () => {
   const { movies, setMovies } = useContext(MoviesContext);
@@ -13,19 +13,18 @@ const SearchBar = () => {
   const [movieName, setMovieName] = useState("");
 
   const searchMovieHandler = async (e) => {
+    e.preventDefault();
+
     if (movieName.trim() === "") {
       alert("No keyword. Please add the name of a movie! ");
       return;
     }
-    e.preventDefault();
 
     try {
       const response = await fetch(
         `${baseURL}search/movie?api_key=${api_key}&query=${movieName}&language=en-US&include_adult=false`
       );
-
       const data = await response.json();
-
       setMovies(data.results);
     } catch (error) {
       console.log(error);

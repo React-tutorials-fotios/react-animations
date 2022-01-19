@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
-import "../CSS/listItem.css";
 import MovieDetails from "./MovieDetails";
+import "../CSS/listItem.css";
 
 const itemVariants = {
   whileHover: { scale: 1.05, boxShadow: "0 0 8px rgb(47, 82, 95) " },
@@ -59,7 +59,8 @@ const ListItem = ({ index, movie }) => {
             animate={{
               scale: 1,
               transition: {
-                delay: 17,
+                // delay: 17,
+                delay: 2.4,
                 type: "spring",
                 stiffness: 550,
               },

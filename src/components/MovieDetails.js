@@ -30,12 +30,10 @@ const MovieDetails = ({ checkMovieHandler, movie }) => {
     (async () => {
       const response = await fetch(
         `http://image.tmdb.org/t/p/w185/${movie.poster_path}`
-        // `${baseURL}configuration?api_key=<<api_key>>`
       );
       setUrl(response.url);
     })();
   }, [url]);
-  console.log(movie.overview.length);
 
   const getHeight = () => {
     const len = movie.overview.length;
@@ -49,6 +47,7 @@ const MovieDetails = ({ checkMovieHandler, movie }) => {
     if (len > 700 && len < 800) return len + 350;
     if (len > 800) return len + 350;
   };
+
   return (
     <motion.article
       onClick={checkMovieHandler}

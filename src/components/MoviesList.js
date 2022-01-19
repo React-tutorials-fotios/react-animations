@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { MoviesContext } from "../App";
 import ListItem from "./ListItem";
 import "../CSS/movieList.css";
+
 const itemVariants = {
   initial: { x: "-100vw", opacity: 0 },
   animate: { x: 0, opacity: 1 },
@@ -12,11 +13,11 @@ const itemVariants = {
 
 const MoviesList = () => {
   const { movies } = useContext(MoviesContext);
-  console.log("movies", movies);
+
   return (
     <ul>
       {movies.length
-        ? movies.map((movie, i) => (
+        ? movies.slice(0, 3).map((movie, i) => (
             <motion.div
               variants={itemVariants}
               initial="initial"
