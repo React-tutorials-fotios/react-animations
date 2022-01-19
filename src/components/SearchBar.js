@@ -13,6 +13,10 @@ const SearchBar = () => {
   const [movieName, setMovieName] = useState("");
 
   const searchMovieHandler = async (e) => {
+    if (movieName.trim() === "") {
+      alert("No keyword. Please add the name of a movie! ");
+      return;
+    }
     e.preventDefault();
 
     try {
