@@ -5,6 +5,7 @@ ul li {
   border-radius: 25px;
   overflow: hidden;
   cursor: pointer;
+  max-width: 400px;
 }
 
 ul li img {

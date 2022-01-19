@@ -23,7 +23,7 @@ const imgVariants = {
   },
 };
 
-const MovieDetails = ({ movie }) => {
+const MovieDetails = ({ checkMovieHandler, movie }) => {
   const [url, setUrl] = useState("");
 
   useEffect(() => {
@@ -51,6 +51,7 @@ const MovieDetails = ({ movie }) => {
   };
   return (
     <motion.article
+      onClick={checkMovieHandler}
       variants={itemVariants}
       initial="initial"
       animate="animate"
@@ -69,7 +70,7 @@ const MovieDetails = ({ movie }) => {
         <p className="details">Populatity: {movie.popularity}</p>
         <p className="details">Vote Average: {movie.vote_average}</p>
         <p className="details">Vote count: {movie.vote_count}</p>
-        <p className="overview">{movie.overview}</p>
+        <p>{movie.overview}</p>
       </section>
     </motion.article>
   );

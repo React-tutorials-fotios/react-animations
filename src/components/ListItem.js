@@ -19,7 +19,6 @@ const imgVariants = {
 const ListItem = ({ index, movie }) => {
   const [url, setUrl] = useState("");
   const [checkMovie, setCheckMovie] = useState(false);
-  const [animateItem, setAnimateItem] = useState(-700);
 
   useEffect(() => {
     (async () => {
@@ -30,20 +29,18 @@ const ListItem = ({ index, movie }) => {
     })();
   }, [url]);
 
-  useEffect(() => {
-    setAnimateItem(0);
-  }, []);
-
   const checkMovieHandler = () => {
-    setCheckMovie(true);
+    setCheckMovie((prev) => !prev);
   };
 
   if (checkMovie) {
-    return <MovieDetails movie={movie} />;
+    return <MovieDetails checkMovieHandler={checkMovieHandler} movie={movie} />;
   } else
     return (
       <motion.li
         variants={itemVariants}
+        initial={{ scale: 0.9 }}
+        animate={{ scale: 1, transition: { type: "spring", stiffness: 80 } }}
         whileHover="whileHover"
         onClick={checkMovieHandler}>
         <motion.img
@@ -57,10 +54,10 @@ const ListItem = ({ index, movie }) => {
         <section className="movie-description">
           <h4>{movie.title}</h4>
 
-          <motion.div
-            initial={{ scale: 0.9 }}
+          <motion.h5
+            initial={{ scale: 0.8 }}
             animate={{
-              scale: 1.1,
+              scale: 1,
               transition: {
                 delay: 17,
                 type: "spring",
@@ -68,7 +65,7 @@ const ListItem = ({ index, movie }) => {
               },
             }}>
             {movie.release_date}
-          </motion.div>
+          </motion.h5>
           <p>{movie.overview.slice(0, 88)}...</p>
         </section>
       </motion.li>
