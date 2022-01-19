@@ -21,7 +21,7 @@ const MoviesList = () => {
               variants={itemVariants}
               initial="initial"
               animate="animate"
-              transition={{ duration: 0.4, delay: i * 0.3 }}>
+              transition={{ duration: 0.3, delay: i * 0.8 }}>
               <ListItem key={movie.id} movie={movie} index={i} />
             </motion.div>
           ))

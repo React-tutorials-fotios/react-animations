@@ -16,7 +16,7 @@ const imgVariants = {
   },
 };
 
-const ListItem = ({ movie, index }) => {
+const ListItem = ({ index, movie }) => {
   const [url, setUrl] = useState("");
   const [checkMovie, setCheckMovie] = useState(false);
   const [animateItem, setAnimateItem] = useState(-700);
@@ -35,7 +35,6 @@ const ListItem = ({ movie, index }) => {
   }, []);
 
   const checkMovieHandler = () => {
-    console.log("checkMovieHandler", movie.id, url);
     setCheckMovie(true);
   };
 
@@ -50,14 +49,26 @@ const ListItem = ({ movie, index }) => {
         <motion.img
           variants={imgVariants}
           initial={{ opacity: 0 }}
-          animate={{ opacity: 1, transition: { delay: (index + 1) * 0.3 } }}
+          animate={{ opacity: 1, transition: { delay: (index + 1) * 0.8 } }}
           whileHover="whileHover" // attribute should propagated from parent
           src={url}
           alt="movie image"
         />
         <section className="movie-description">
           <h4>{movie.title}</h4>
-          <h5>{movie.release_date}</h5>
+
+          <motion.div
+            initial={{ scale: 0.9 }}
+            animate={{
+              scale: 1.1,
+              transition: {
+                delay: 17,
+                type: "spring",
+                stiffness: 550,
+              },
+            }}>
+            {movie.release_date}
+          </motion.div>
           <p>{movie.overview.slice(0, 88)}...</p>
         </section>
       </motion.li>
