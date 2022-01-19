@@ -5,9 +5,6 @@ import "../CSS/listItem.css";
 import MovieDetails from "./MovieDetails";
 
 const itemVariants = {
-  initial: { x: "-100vw", opacity: 0 },
-  animate: { x: 0, opacity: 1, transition: { type: "spring", stiffness: 80 } },
-  transition: { type: "spring", stiffness: 520 },
   whileHover: { scale: 1.05, boxShadow: "0 0 8px rgb(47, 82, 95) " },
 };
 
@@ -19,7 +16,7 @@ const imgVariants = {
   },
 };
 
-const ListItem = ({ movie }) => {
+const ListItem = ({ movie, index }) => {
   const [url, setUrl] = useState("");
   const [checkMovie, setCheckMovie] = useState(false);
   const [animateItem, setAnimateItem] = useState(-700);
@@ -48,21 +45,18 @@ const ListItem = ({ movie }) => {
     return (
       <motion.li
         variants={itemVariants}
-        initial="initial"
-        animate="animate"
-        transition={itemVariants.transition} // no effect if in quotes
         whileHover="whileHover"
         onClick={checkMovieHandler}>
         <motion.img
           variants={imgVariants}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1, transition: { delay: (index + 1) * 0.3 } }}
           whileHover="whileHover" // attribute should propagated from parent
           src={url}
           alt="movie image"
         />
         <section className="movie-description">
-          <motion.h4 animate={{ fontSize: 28, color: "white", x: -10, y: 0 }}>
-            {movie.title}
-          </motion.h4>
+          <h4>{movie.title}</h4>
           <h5>{movie.release_date}</h5>
           <p>{movie.overview.slice(0, 88)}...</p>
         </section>
