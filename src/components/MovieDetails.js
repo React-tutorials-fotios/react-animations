@@ -1,5 +1,27 @@
 import React, { useEffect, useState } from "react";
+import { motion } from "framer-motion";
+
 import "../CSS/movieDetails.css";
+
+const itemVariants = {
+  initial: { opacity: 0 },
+  animate: {
+    x: 0,
+    opacity: 1,
+    scale: 1.05,
+    boxShadow: "0 0 8px rgb(47, 82, 95) ",
+    transition: { type: "spring", stiffness: 80 },
+  },
+  transition: { type: "spring", stiffness: 520 },
+};
+
+const imgVariants = {
+  whileHover: {
+    scale: 1.1,
+    boxShadow: "0 0 8px rgb(47, 82, 95) ",
+    transition: { type: "spring", stiffness: 550 },
+  },
+};
 
 const MovieDetails = ({ movie }) => {
   const [url, setUrl] = useState("");
@@ -28,8 +50,19 @@ const MovieDetails = ({ movie }) => {
     if (len > 800) return len + 350;
   };
   return (
-    <article className="container" style={{ height: `${getHeight()}px` }}>
-      <img src={url} alt="movie image" />
+    <motion.article
+      variants={itemVariants}
+      initial="initial"
+      animate="animate"
+      transition={itemVariants.transition}
+      className="container"
+      style={{ height: `${getHeight()}px` }}>
+      <motion.img
+        variants={imgVariants}
+        whileHover="whileHover"
+        src={url}
+        alt="movie image"
+      />
       <section className="movie-description">
         <h4>{movie.title}</h4>
         <p>Release date: {movie.release_date}</p>
@@ -38,7 +71,7 @@ const MovieDetails = ({ movie }) => {
         <p className="details">Vote count: {movie.vote_count}</p>
         <p className="overview">{movie.overview}</p>
       </section>
-    </article>
+    </motion.article>
   );
 };
 

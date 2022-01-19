@@ -4,6 +4,7 @@ ul li {
   margin: 25px;
   border-radius: 25px;
   overflow: hidden;
+  cursor: pointer;
 }
 
 ul li img {

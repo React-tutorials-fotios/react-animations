@@ -1,4 +1,5 @@
 import React, { useContext, useState } from "react";
+import { motion } from "framer-motion";
 
 import api_key from "../api_key";
 import { MoviesContext } from "../App";
@@ -39,9 +40,13 @@ const SearchBar = () => {
         value={movieName}
         onChange={handleChange}
       />
-      <button className="searchButton" onClick={searchMovieHandler}>
+      <motion.button
+        className="searchButton"
+        onClick={searchMovieHandler}
+        whileHover={{ scale: 1.1 }}
+        whileTap={{ scale: 0.9 }}>
         Search
-      </button>
+      </motion.button>
     </form>
   );
 };
