@@ -1,14 +1,14 @@
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 
 import api_key from "../api_key";
-import { MoviesContext } from "../App";
 import "../CSS/searchBar.css";
+import { useMoviesContext } from "../utils/MoviesProvider";
 
 const baseURL = "https://api.themoviedb.org/3/";
 
 const SearchBar = () => {
-  const { movies, setMovies } = useContext(MoviesContext);
+  const { setMovies } = useMoviesContext();
 
   const [movieName, setMovieName] = useState("");
 

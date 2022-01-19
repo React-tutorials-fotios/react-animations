@@ -25,15 +25,14 @@ const imgVariants = {
 
 const MovieDetails = ({ checkMovieHandler, movie }) => {
   const [url, setUrl] = useState("");
+  const path = movie.poster_path;
 
   useEffect(() => {
     (async () => {
-      const response = await fetch(
-        `http://image.tmdb.org/t/p/w185/${movie.poster_path}`
-      );
+      const response = await fetch(`http://image.tmdb.org/t/p/w185/${path}`);
       setUrl(response.url);
     })();
-  }, [url]);
+  }, [url, path]);
 
   const getHeight = () => {
     const len = movie.overview.length;

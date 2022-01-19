@@ -1,8 +1,8 @@
-import React, { useContext } from "react";
+import React from "react";
 import { motion } from "framer-motion";
 
-import { MoviesContext } from "../App";
 import ListItem from "./ListItem";
+import { useMoviesContext } from "../utils/MoviesProvider";
 import "../CSS/movieList.css";
 
 const itemVariants = {
@@ -12,7 +12,7 @@ const itemVariants = {
 };
 
 const MoviesList = () => {
-  const { movies } = useContext(MoviesContext);
+  const { movies } = useMoviesContext();
 
   return (
     <ul>

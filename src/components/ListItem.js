@@ -19,15 +19,13 @@ const imgVariants = {
 const ListItem = ({ index, movie }) => {
   const [url, setUrl] = useState("");
   const [checkMovie, setCheckMovie] = useState(false);
-
+  const path = movie.poster_path;
   useEffect(() => {
     (async () => {
-      const response = await fetch(
-        `http://image.tmdb.org/t/p/w92/${movie.poster_path}`
-      );
+      const response = await fetch(`http://image.tmdb.org/t/p/w92/${path}`);
       setUrl(response.url);
     })();
-  }, [url]);
+  }, [url, path]);
 
   const checkMovieHandler = () => {
     setCheckMovie((prev) => !prev);
