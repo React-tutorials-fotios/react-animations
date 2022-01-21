@@ -1,56 +1,69 @@
-import React, { useState } from "react";
-import { motion } from "framer-motion";
+import React, { useEffect, useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
 
-import api_key from "../api_key";
 import "../CSS/searchBar.css";
 import { useMoviesContext } from "../utils/MoviesProvider";
-
-const baseURL = "https://api.themoviedb.org/3/";
+import fetchMovies from "../utils/fetchMovies";
+import Modal from "./Modal";
 
 const SearchBar = () => {
-  const { setMovies } = useMoviesContext();
-
+  const { movies, setMovies } = useMoviesContext();
   const [movieName, setMovieName] = useState("");
+  const [showModal, setShowModal] = useState(false);
+  const animate = movieName.trim().length;
 
-  const searchMovieHandler = async (e) => {
-    e.preventDefault();
-
-    if (movieName.trim() === "") {
-      alert("No keyword. Please add the name of a movie! ");
-      return;
-    }
-
-    try {
-      const response = await fetch(
-        `${baseURL}search/movie?api_key=${api_key}&query=${movieName}&language=en-US&include_adult=false`
-      );
-      const data = await response.json();
-      setMovies(data.results);
-    } catch (error) {
-      console.log(error);
-    }
+  const fetchMoviesHandler = async (e) => {
+    await fetchMovies(e, movieName, setMovies);
+    setMovieName("");
   };
 
   const handleChange = (e) => setMovieName(e.target.value);
 
+  useEffect(() => {
+    setShowModal(true);
+  }, []);
+
   return (
-    <form>
-      <input
-        type="text"
-        id="header-search"
-        placeholder="Search movies"
-        name="movieName"
-        value={movieName}
-        onChange={handleChange}
-      />
-      <motion.button
-        className="searchButton"
-        onClick={searchMovieHandler}
-        whileHover={{ scale: 1.1 }}
-        whileTap={{ scale: 0.9 }}>
-        Search
-      </motion.button>
-    </form>
+    <div>
+      <Modal showModal={showModal} setShowModal={setShowModal} />
+      <form>
+        {!showModal ? (
+          <motion.input
+            initial={{ x: "-100vw" }}
+            animate={{ x: 0 }}
+            transition={{ type: "spring", stiffness: 100 }}
+            type="text"
+            id="header-search"
+            placeholder="Search movies"
+            name="movieName"
+            value={movieName}
+            onChange={handleChange}
+          />
+        ) : null}
+        <AnimatePresence>
+          {animate ? (
+            <motion.button
+              initial={{ y: "-100vw" }}
+              animate={{ y: 0 }}
+              transition={
+                !movies.length
+                  ? { type: "spring", stiffness: 200 }
+                  : { type: "just" }
+              }
+              exit={{ y: "-100vh" }}
+              whileHover={{
+                scale: 1.05,
+                boxShadow: "0 0 8px rgb(47, 82, 95) ",
+              }}
+              whileTap={{ scale: 0.9 }}
+              onClick={fetchMoviesHandler}
+              className="searchButton">
+              Search
+            </motion.button>
+          ) : null}
+        </AnimatePresence>
+      </form>
+    </div>
   );
 };
 

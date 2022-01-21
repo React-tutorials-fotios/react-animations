@@ -9,6 +9,7 @@ input[type="text"] {
 }
 
 .searchButton {
+  cursor: pointer;
   background-color: skyblue; /* Green */
   border: none;
   color: white;

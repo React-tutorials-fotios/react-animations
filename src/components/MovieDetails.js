@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
 import "../CSS/movieDetails.css";
+import axios from "axios";
 
 const itemVariants = {
   initial: { opacity: 0 },
@@ -15,22 +16,18 @@ const itemVariants = {
   transition: { type: "spring", stiffness: 520 },
 };
 
-const imgVariants = {
-  whileHover: {
-    scale: 1.1,
-    boxShadow: "0 0 8px rgb(47, 82, 95) ",
-    transition: { type: "spring", stiffness: 550 },
-  },
-};
-
 const MovieDetails = ({ checkMovieHandler, movie }) => {
   const [url, setUrl] = useState("");
   const path = movie.poster_path;
 
   useEffect(() => {
     (async () => {
-      const response = await fetch(`http://image.tmdb.org/t/p/w185/${path}`);
-      setUrl(response.url);
+      try {
+        const response = await fetch(`http://image.tmdb.org/t/p/w185/${path}`);
+        setUrl(response.url);
+      } catch (error) {
+        throw new Error(error);
+      }
     })();
   }, [url, path]);
 
@@ -56,12 +53,7 @@ const MovieDetails = ({ checkMovieHandler, movie }) => {
       transition={itemVariants.transition}
       className="container"
       style={{ height: `${getHeight()}px` }}>
-      <motion.img
-        variants={imgVariants}
-        whileHover="whileHover"
-        src={url}
-        alt="movie image"
-      />
+      <img src={url} alt="movie image" />
       <section className="movie-description">
         <h4>{movie.title}</h4>
         <p>Release date: {movie.release_date}</p>
