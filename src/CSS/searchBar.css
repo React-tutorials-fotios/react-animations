@@ -6,20 +6,7 @@ input[type="text"] {
   padding: 6px 3px;
   border: 2px solid skyblue;
   width: 200px;
-}
-
-.searchButton {
-  cursor: pointer;
-  background-color: skyblue; /* Green */
-  border: none;
-  color: white;
-  padding: 5px 3px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  border-radius: 5px;
-  margin-left: 5px;
+  margin-bottom: 10px;
 }
 
 ::placeholder {
@@ -38,4 +25,20 @@ input[type="text"] {
   /* Microsoft Edge */
   color: rgb(47, 82, 95);
   font-weight: bold;
+}
+
+.searchButton {
+  cursor: pointer;
+  background-color: skyblue;
+  border: none;
+  color: white;
+  padding: 5px 3px;
+  text-align: center;
+  text-decoration: none;
+  /* position: absolute; */
+  /* top: 100px; */
+  /* left: 255px; */
+  font-size: 16px;
+  border-radius: 5px;
+  /* margin-left: 5px; */
 }

@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
 import "../CSS/movieDetails.css";
-import axios from "axios";
 
 const itemVariants = {
   initial: { opacity: 0 },
@@ -53,7 +52,7 @@ const MovieDetails = ({ checkMovieHandler, movie }) => {
       transition={itemVariants.transition}
       className="container"
       style={{ height: `${getHeight()}px` }}>
-      <img src={url} alt="movie image" />
+      <img src={url} alt="movie poster" />
       <section className="movie-description">
         <h4>{movie.title}</h4>
         <p>Release date: {movie.release_date}</p>
