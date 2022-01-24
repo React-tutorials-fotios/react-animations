@@ -9,10 +9,6 @@ import api_key from "../api_key";
 import fetchMovies from "../utils/fetchMovies";
 
 describe("<SearchBar />", () => {
-  const empty = [];
-  const movies = [{ id: 1 }, { id: 2 }, { id: 3 }];
-  const setMovies = jest.fn();
-
   it("elements are rendered ", () => {
     const { getByText, getByRole, getByTestId, getByPlaceholderText } = render(
       <MoviesProvider value={{}}>
@@ -35,7 +31,7 @@ describe("<SearchBar />", () => {
 
   it("user can type in the input ", () => {
     const { getByText, getByRole, getByPlaceholderText } = render(
-      <MoviesProvider value={{ empty }}>
+      <MoviesProvider value={{}}>
         <SearchBar />
       </MoviesProvider>
     );
