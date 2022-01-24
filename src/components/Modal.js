@@ -14,6 +14,7 @@ const modal = {
     opacity: 1,
     transition: { delay: 0.5 },
   },
+  exit: { y: "100vh", opacity: 0 },
 };
 
 const Modal = ({ showModal, setShowModal }) => {
@@ -25,7 +26,7 @@ const Modal = ({ showModal, setShowModal }) => {
           variants={backdrop}
           initial="hidden"
           animate="visible"
-          exit="hidden">
+          exit="exit">
           <motion.div className="modal" variants={modal}>
             <p>Welcome to our page!</p>
             <p>Please search for a movie.</p>

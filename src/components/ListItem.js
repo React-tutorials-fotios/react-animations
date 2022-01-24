@@ -39,11 +39,12 @@ const ListItem = ({ index, movie }) => {
   const path = movie.poster_path;
   useEffect(() => {
     (async () => {
-      const response = await fetch(`http://image.tmdb.org/t/p/w92/${path}`);
+      const response = await fetch(`https://image.tmdb.org/t/p/w92/${path}`);
+      console.log(response);
       setUrl(response.url);
     })();
   }, [url, path]);
-
+  console.log(url);
   const checkMovieHandler = () => {
     setCheckMovie((prev) => !prev);
   };

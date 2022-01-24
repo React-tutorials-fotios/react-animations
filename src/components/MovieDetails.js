@@ -22,7 +22,7 @@ const MovieDetails = ({ checkMovieHandler, movie }) => {
   useEffect(() => {
     (async () => {
       try {
-        const response = await fetch(`http://image.tmdb.org/t/p/w185/${path}`);
+        const response = await fetch(`https://image.tmdb.org/t/p/w185/${path}`);
         setUrl(response.url);
       } catch (error) {
         throw new Error(error);
