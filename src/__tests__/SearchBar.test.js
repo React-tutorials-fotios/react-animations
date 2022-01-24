@@ -3,7 +3,7 @@ import { fireEvent, render, screen } from "@testing-library/react";
 
 import SearchBar from "../components/SearchBar";
 import { MoviesContext } from "../App";
-import MoviesProvider from "../utils/MoviesProvider";
+import { MoviesProvider } from "../utils/MoviesProvider";
 import MoviesList from "../components/MoviesList";
 import api_key from "../api_key";
 import fetchMovies from "../utils/fetchMovies";

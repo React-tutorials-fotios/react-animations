@@ -2,7 +2,7 @@ import React, { createContext, useContext, useState } from "react";
 
 export const MoviesContext = createContext();
 
-const MoviesProvider = ({ children }) => {
+export const MoviesProvider = ({ children }) => {
   const [movies, setMovies] = useState([]);
 
   return (
@@ -13,5 +13,3 @@ const MoviesProvider = ({ children }) => {
 };
 
 export const useMoviesContext = () => useContext(MoviesContext);
-
-export default MoviesProvider;

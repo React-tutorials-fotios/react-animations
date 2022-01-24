@@ -2,7 +2,7 @@ import React from "react";
 
 import MoviesList from "./components/MoviesList";
 import SearchBar from "./components/SearchBar";
-import MoviesProvider from "./utils/MoviesProvider";
+import { MoviesProvider } from "./utils/MoviesProvider";
 import "./CSS/App.css";
 
 function App() {
