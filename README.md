@@ -9,9 +9,9 @@ Notes:
 Animations:
 
 - `Modal` slides from above to welcome user,
-- User presses `OK` button, `Modal` slides away to the oposite direction and `Input` slides from left, and CSS letter M (for Movies) and a ball running in the letter fades in above the `Input`.
+- User presses `OK` button, `Modal` slides away to the oposite direction and `Input` slides from left, and CSS letter M (for Movies) and a ball running in the letter fades in above the `Input`.
 - Wnen user types, `Search` button slides from right.
-- When `Search` button is pressed the list of movies slide one by one from left.
+- When `Search` button is pressed the list of movies slide one by one from left.
   Movie item 1 slides in from left
 - Once in position, image for item 1 fades in
 - Repeat step 1 & 2 for each item in the movie list
