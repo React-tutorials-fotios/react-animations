@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 
-import "../CSS/searchBar.css";
-import { useMoviesContext } from "../utils/MoviesProvider";
-import fetchMovies from "../utils/fetchMovies";
 import Modal from "./Modal";
 import MAnimation from "./MAnimation";
+import { fetchMovies, useMoviesContext } from "../utils";
+import "../CSS/searchBar.css";
 
 const SearchBar = () => {
   const { movies, setMovies } = useMoviesContext();
@@ -43,7 +42,9 @@ const SearchBar = () => {
               animate={{ opacity: 1, transition: { delay: 1, duration: 1 } }}
               style={{ marginBottom: -10 }}
               id="letter-m"></motion.div>
+
             <MAnimation />
+
             <motion.input
               initial={{ x: "-100vw" }}
               animate={{ x: 0 }}
