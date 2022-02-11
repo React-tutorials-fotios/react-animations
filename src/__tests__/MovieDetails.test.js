@@ -1,9 +1,7 @@
-import { cleanup, findAllByRole, render, screen } from "@testing-library/react";
+import { cleanup, render, screen } from "@testing-library/react";
 import React from "react";
 
-import MoviesList from "../components/MoviesList";
 import { MoviesProvider } from "../utils/MoviesProvider";
-import ListItem from "../components/ListItem";
 import MovieDetails from "../components/MovieDetails";
 
 jest.mock("../utils/MoviesProvider", () => {
@@ -39,14 +37,16 @@ describe("<MovieDetails />", () => {
   };
 
   it("MovieDetails are rendered", async () => {
-    const { findByRole } = render(
+    render(
       <MoviesProvider value={{}}>
         <MovieDetails movie={movie} />
       </MoviesProvider>
     );
 
+    // eslint-disable-next-line testing-library/no-debugging-utils
     screen.debug();
-    const article = await findByRole("article");
+
+    const article = await screen.findByRole("article");
     expect(article).toBeInTheDocument();
   });
 });

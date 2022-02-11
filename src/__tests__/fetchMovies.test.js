@@ -1,8 +1,7 @@
-import { cleanup, findAllByRole, render, screen } from "@testing-library/react";
+/* eslint-disable testing-library/no-debugging-utils */
+import { cleanup, screen } from "@testing-library/react";
 import React from "react";
-import MoviesList from "../components/MoviesList";
 import fetchMovies from "../utils/fetchMovies";
-import { MoviesProvider } from "../utils/MoviesProvider";
 
 export const movies = [
   {
