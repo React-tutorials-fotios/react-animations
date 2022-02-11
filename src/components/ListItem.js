@@ -10,7 +10,7 @@ const boxShadow = "0 0 8px rgb(47, 82, 95) ";
 const itemVariants = {
   whileHover: {
     scale: 1.05,
-    boxShadow: boxShadow,
+    boxShadow,
     transition: {
       type: "spring",
       stiffness: 100,
@@ -23,7 +23,7 @@ const itemVariants = {
 const imgVariants = {
   whileHover: {
     scale: 1.05,
-    boxShadow: boxShadow,
+    boxShadow,
     transition: {
       type: "spring",
       stiffness: 550,
@@ -37,14 +37,15 @@ const ListItem = ({ index, movie }) => {
   const [url, setUrl] = useState("");
   const [checkMovie, setCheckMovie] = useState(false);
   const path = movie.poster_path;
+
   useEffect(() => {
     (async () => {
       const response = await fetch(`https://image.tmdb.org/t/p/w92/${path}`);
-      console.log(response);
+
       setUrl(response.url);
     })();
   }, [url, path]);
-  console.log(url);
+
   const checkMovieHandler = () => {
     setCheckMovie((prev) => !prev);
   };

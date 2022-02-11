@@ -23,5 +23,7 @@ Notes:
 
 #### Testing coverage:
 
+- run tests `npm t`
+- check coverage: `npm run cov` then go to `coverage/Icon-report` right click `index.html` and `Open with Live Server`
 - components: 76%
 - utils: 93%

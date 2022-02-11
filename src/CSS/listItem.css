@@ -12,7 +12,6 @@ ul li img {
   display: flex;
   margin: 12px 14px;
   align-self: flex-start;
-  text-align: left;
   border-radius: 25px;
   border: 2px solid white;
 }

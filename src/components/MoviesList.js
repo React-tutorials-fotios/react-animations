@@ -13,7 +13,7 @@ const itemVariants = {
 
 const MoviesList = () => {
   const { movies } = useMoviesContext();
-  // console.log(movies);
+
   return (
     <ul>
       {movies.length

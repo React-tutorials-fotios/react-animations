@@ -13,7 +13,9 @@ const fetchMovies = async (e, movieName, setMovies) => {
     // if (!response.ok) throw new Error(response.status);
 
     const data = await response.json();
+
     setMovies(data.results);
+
     return data.results; // return for testing
   } catch (error) {
     throw new Error(error);

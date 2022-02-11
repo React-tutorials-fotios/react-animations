@@ -53,6 +53,7 @@ const MovieDetails = ({ checkMovieHandler, movie }) => {
       className="container"
       style={{ height: `${getHeight()}px` }}>
       <img src={url} alt="movie poster" />
+
       <section className="movie-description">
         <h4>{movie.title}</h4>
         <p>Release date: {movie.release_date}</p>

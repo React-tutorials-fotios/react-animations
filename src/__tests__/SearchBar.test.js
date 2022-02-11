@@ -1,11 +1,11 @@
 import React from "react";
 import { fireEvent, render, screen } from "@testing-library/react";
 
-import SearchBar from "../components/SearchBar";
-import { MoviesProvider } from "../utils/MoviesProvider";
+import { SearchBar } from "../components";
+import { MoviesProvider } from "../utils";
 
 describe("<SearchBar />", () => {
-  it("elements are rendered", () => {
+  it("Input and button elements are rendered", () => {
     render(
       <MoviesProvider value={{}}>
         <SearchBar />
@@ -25,7 +25,7 @@ describe("<SearchBar />", () => {
     expect(button).toBeInTheDocument();
   });
 
-  it("user can type in the input", () => {
+  it("User can see what is typed in the input", () => {
     render(
       <MoviesProvider value={{}}>
         <SearchBar />
