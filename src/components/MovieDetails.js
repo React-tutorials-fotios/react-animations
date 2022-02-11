@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
 import "../CSS/movieDetails.css";
+import { getHeight } from "../utils";
 
 const itemVariants = {
   initial: { opacity: 0 },
@@ -30,19 +31,6 @@ const MovieDetails = ({ checkMovieHandler, movie }) => {
     })();
   }, [url, path]);
 
-  const getHeight = () => {
-    const len = movie.overview.length;
-    if (len < 100) return len + 740;
-    if (len > 100 && len < 200) return len + 710;
-    if (len > 200 && len < 200) return len + 700;
-    if (len > 200 && len < 300) return len + 650;
-    if (len > 300 && len < 400) return len + 600;
-    if (len > 400 && len < 500) return len + 520;
-    if (len > 600 && len < 700) return len + 520;
-    if (len > 700 && len < 800) return len + 350;
-    if (len > 800) return len + 350;
-  };
-
   return (
     <motion.article
       onClick={checkMovieHandler}
@@ -51,7 +39,7 @@ const MovieDetails = ({ checkMovieHandler, movie }) => {
       animate="animate"
       transition={itemVariants.transition}
       className="container"
-      style={{ height: `${getHeight()}px` }}>
+      style={{ height: `${getHeight(movie.overview.length)}px` }}>
       <img src={url} alt="movie poster" />
 
       <section className="movie-description">

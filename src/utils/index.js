@@ -7,3 +7,4 @@ export { MoviesProvider };
 export { useMoviesContext };
 
 export { default as fetchMovies } from "./fetchMovies";
+export { default as getHeight } from "./getHeight";

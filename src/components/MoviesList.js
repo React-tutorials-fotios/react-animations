@@ -17,7 +17,8 @@ const MoviesList = () => {
   return (
     <ul>
       {movies.length
-        ? movies.slice(0, 3).map((movie, i) => (
+        ? // ? movies.slice(0, 3).map((movie, i) => (
+          movies.map((movie, i) => (
             <motion.div
               key={movie.id}
               variants={itemVariants}
